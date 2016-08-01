@@ -2,7 +2,7 @@ var auth0Profile = require('./fixtures/auth0-example-profile');
 var Profile = require('../lib/Profile');
 
 describe('Profile', function () {
-  
+
   before(function () {
     this.profile = new Profile(auth0Profile);
   });
@@ -27,7 +27,7 @@ describe('Profile', function () {
         .should.eql('Romaniello');
   });
 
-  it('should map the emails', function () { 
+  it('should map the emails', function () {
     this.profile.emails[0]
       .value.should.eql('jfromaniello@gmail.com');
   });

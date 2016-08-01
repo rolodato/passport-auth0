@@ -1,15 +1,14 @@
 var Auth10Strategy = require('../lib');
-var assert = require('assert');
 
 describe('auth0 strategy', function () {
   before(function () {
     this.strategy = new Auth10Strategy({
-       domain:       'jj.auth0.com', 
-       clientID:     'testid',
-       clientSecret: 'testsecret',
-       callbackURL:  '/callback'
-      },
-      function(accessToken, idToken, profile, done) {}
+      domain:       'jj.auth0.com',
+      clientID:     'testid',
+      clientSecret: 'testsecret',
+      callbackURL:  '/callback'
+    },
+      function() {}
     );
   });
 
@@ -17,12 +16,12 @@ describe('auth0 strategy', function () {
     this.strategy.options
       .authorizationURL.should.eql('https://jj.auth0.com/authorize');
   });
-  
+
   it('tokenURL should have the domain', function () {
     this.strategy.options
       .tokenURL.should.eql('https://jj.auth0.com/oauth/token');
   });
-  
+
   it('userInfoURL should have the domain', function () {
     this.strategy.options
       .userInfoURL.should.eql('https://jj.auth0.com/userinfo');
@@ -37,10 +36,10 @@ describe('auth0 strategy', function () {
 
   });
 
-  describe('authenticate', function () { 
+  describe('authenticate', function () {
     it('when there is an error querystring propagate', function (done) {
-      
-      this.strategy.fail = function (challenge, status) {
+
+      this.strategy.fail = function (challenge) {
         challenge.should.eql('domain_mismatch');
         done();
       };
@@ -51,5 +50,5 @@ describe('auth0 strategy', function () {
         }
       });
     });
-  }); 
+  });
 });
