@@ -17,12 +17,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^2.2.5",
-    "should": "^7.1.0"
+    "mocha": "^2.5.3",
+    "should": "^7.1.1"
   },
   "dependencies": {
-    "passport-oauth": "^1.0.0",
-    "request": "^2.61.0",
-    "xtend": "^4.0.0"
+    "passport-openidconnect": "rolodato/passport-openidconnect#master",
+    "request": "^2.74.0",
+    "xtend": "^4.0.1"
   }
 }
